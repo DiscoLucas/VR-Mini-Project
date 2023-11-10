@@ -10,7 +10,7 @@ namespace Ilumisoft.Environment
     public class CloudLayerEditor : Editor
     {
         CloudLayer CloudLayer { get; set; }
-
+        
         private void OnEnable()
         {
             CloudLayer = target as CloudLayer;
