@@ -8,6 +8,7 @@ TagManager:
   - Knife
   - Cuttingboard
   - Fluid
+  - Burner
   layers:
   - Default
   - TransparentFX

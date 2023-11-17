@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,12 @@ public class Patty : MonoBehaviour
     public float timeCooked;
     public float finishTime;
     public float finishWindow; // the window of time where the patty is considered cooked, before it burns
+    private float burnTimer;
     public Color raw;
     public Color cooked;
     private new Renderer renderer;
     public PattyState currentState;
+    private bool isOnStove;
 
     // Patty enum states
     public enum PattyState
@@ -43,18 +46,6 @@ public class Patty : MonoBehaviour
                     SetState(PattyState.CookedState);
                 }
             }
-            //gameObject.GetComponent<Renderer>().material.color = Color.Lerp(raw, cooked, finishTime); //change the color of the patty
-
-            /*if (timeCooked >= finishTime)
-            {
-                Debug.Log("Patty is cooked");
-                if (timeCooked >= finishTime + finishWindow) //if the patty is cooked
-                {
-                    Debug.Log("Patty is burnt");
-                    gameObject.GetComponent<Renderer>().material.color = Color.Lerp(cooked, Color.black, 5f); //
-                }
-            }
-            */
         }
     }
 
@@ -62,15 +53,29 @@ public class Patty : MonoBehaviour
     void Start()
     {
         renderer = GetComponent<Renderer>();
-        Color raw = renderer.material.color;
+        raw = renderer.material.color;
+        currentState = PattyState.RawState;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (currentState == PattyState.BurntState && isOnStove)
+        {
+            burnTimer += Time.deltaTime;
+            float burnProgress = Mathf.Clamp01(burnTimer / finishWindow);
+            renderer.material.color = Color.Lerp(cooked, Color.black, burnProgress);
 
+            if (burnTimer >= finishWindow)
+            {
+                SetState(PattyState.BurntState);
+            }
+        }
         
     }
+
+
+
     private void SetState(PattyState newState)
     {
         currentState = newState;
@@ -83,8 +88,20 @@ public class Patty : MonoBehaviour
 
             case PattyState.BurntState:
                 Debug.Log("Patty is burnt");
-                renderer.material.color = Color.Lerp(cooked, Color.black, 5f);
+                burnTimer = 0f;
                 break;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == stoveTop)
+        {
+            isOnStove = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        isOnStove = false;
     }
 }
