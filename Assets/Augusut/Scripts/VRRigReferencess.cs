@@ -11,7 +11,7 @@ public class VRRigReferencess : MonoBehaviour
     public Transform leftHand;
     public Transform rightHand;
 
-
+    public NetworkPlayerr localPlayer { private set; get; }
     private void Awake()
     {
         if (singleton == null)
@@ -36,5 +36,10 @@ public class VRRigReferencess : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void setNetworkPlayer(NetworkPlayerr myPlayer)
+    {
+        localPlayer = myPlayer;
     }
 }

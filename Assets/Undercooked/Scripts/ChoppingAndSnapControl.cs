@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
+
 public class ChoppingAndSnapControl : MonoBehaviour
 {
     public bool isGrabbed = false;
@@ -12,7 +16,7 @@ public class ChoppingAndSnapControl : MonoBehaviour
 
     public GameObject[] choppingObjects;
 
-
+    public Ingredients currentIngredient;
 
     int chopCounter = 0;
 

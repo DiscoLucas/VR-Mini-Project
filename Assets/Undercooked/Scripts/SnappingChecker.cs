@@ -22,8 +22,18 @@ public class SnappingChecker : MonoBehaviour
                 target = other.gameObject;
                 //target.transform.SetParent(gameObject.transform, true);
                 
-                target.transform.position = snapPos.position;
-                target.transform.rotation = snapPos.rotation;
+                snapDistance = target.GetComponent<SphereCollider>().radius;
+
+
+                // Sæt ingrediens objektet til at være i samme position i skærebrættet, men løftet
+                // over skærebrættet lig med ingredienses colliders radius
+                target.transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + snapDistance);
+                target.transform.rotation = gameObject.transform.rotation;
+
+                target.GetComponent<Collider>().isTrigger = true;
+
+                //target.transform.position = snapPos.position;
+                //target.transform.rotation = snapPos.rotation;
                 //target.GetComponent<Rigidbody>().freezeRotation = true;
 
                 //target.transform.localRotation = Quaternion.identity;
@@ -40,13 +50,17 @@ public class SnappingChecker : MonoBehaviour
         if (target.GetComponent<ChoppingAndSnapControl>().isGrabbed == false)//Vector3.Distance(transform.position, target.transform.position) <= snapDistance) )  
         {
 
-            target.transform.position = snapPos.position;
-            target.transform.rotation = snapPos.rotation;
+            target.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + snapDistance);
+            target.transform.rotation = gameObject.transform.rotation;
+
+            //target.transform.position = snapPos.position;
+            //target.transform.rotation = snapPos.rotation;
         }
         // Reset target og frigør ingrediensen, når ingrediensen bliver grabbed af spilleren
         else if(target.GetComponent<ChoppingAndSnapControl>().isGrabbed == true)
         {
             //target.GetComponent<Rigidbody>().freezeRotation = false;
+            target.GetComponent<Collider>().isTrigger = true;
             target = null;
         }
     }

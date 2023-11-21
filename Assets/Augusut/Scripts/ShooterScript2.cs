@@ -2,39 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Unity.Netcode;
 
-public class ShooterScript2 : MonoBehaviour
+public class ShooterScript2 : NetworkBehaviour
 {
 
     public GameObject bullet;
     public Transform spawnPosition;
 
 
-    private float bulletSpeed = 10;
-
-    // Start is called before the first frame update
     void Start()
     {
-        XRGrabInteractable theGunGrabable = GetComponent<XRGrabInteractable>();
-        theGunGrabable.activated.AddListener(bangBang);
+        if (NetworkManager.Singleton == null) Debug.LogError("No network manager yet");
+        NetworkManager.Singleton.AddNetworkPrefab(bullet);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnNetworkSpawn()
     {
-        
+        base.OnNetworkSpawn();
+
+        XRGrabInteractable theGunGrabable = GetComponent<XRGrabInteractable>();
+        theGunGrabable.activated.AddListener(bangBang); 
     }
 
     public void bangBang(ActivateEventArgs arg)
     {
-        GameObject newBullet = Instantiate(bullet);
+        spawnBullet_ServerRpc();
+    }
 
-        newBullet.transform.position = spawnPosition.position;
+    [ServerRpc(RequireOwnership = false)]
+    public void spawnBullet_ServerRpc()
+    {
+        GameObject newBullet = Instantiate(bullet,spawnPosition.position, spawnPosition.rotation);
 
-        newBullet.GetComponent<Rigidbody>().velocity = spawnPosition.forward * bulletSpeed;
+        NetworkObject netBullet = newBullet.GetComponent<NetworkObject>();
 
-
-        Destroy(newBullet, 8);
+        netBullet.Spawn();
     }
 
 
