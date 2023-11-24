@@ -9,6 +9,7 @@ TagManager:
   - Cuttingboard
   - Fluid
   - Burner
+  - Plate
   layers:
   - Default
   - TransparentFX

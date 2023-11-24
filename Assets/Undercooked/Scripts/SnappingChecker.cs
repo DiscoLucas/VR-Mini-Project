@@ -30,7 +30,7 @@ public class SnappingChecker : MonoBehaviour
                 target.transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + snapDistance);
                 target.transform.rotation = gameObject.transform.rotation;
 
-                target.GetComponent<Collider>().isTrigger = true;
+                //target.GetComponent<Collider>().isTrigger = true;
 
                 //target.transform.position = snapPos.position;
                 //target.transform.rotation = snapPos.rotation;

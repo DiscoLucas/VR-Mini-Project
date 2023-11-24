@@ -5378,6 +5378,7 @@ MonoBehaviour:
   - {fileID: 1950439016}
   - {fileID: 501973981}
   - {fileID: 1707129814}
+  currentIngredient: 0
 --- !u!54 &1950439019
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5485,7 +5486,7 @@ Transform:
   m_GameObject: {fileID: 1950439016}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.021, y: 1.307, z: 1.673}
+  m_LocalPosition: {x: 4.021, y: 1.111, z: 1.732}
   m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 0
   m_Children:

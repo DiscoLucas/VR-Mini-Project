@@ -13,46 +13,62 @@ public class CorrectDeliveryChecker : MonoBehaviour
 
     public float score;
 
+    public List<List<Ingredients>> ingredientsList = new List<List<Ingredients>>();
+
     private void OnTriggerEnter(Collider collisionTarget)
     {
 
-
+        // Hvis vi stiller en tallerken på checker-collider'en
         if (collisionTarget.CompareTag("Plate"))
         {
-
+            // Kører vi igennem listen af bestillinger, som orderManager har genereret
             foreach (var order in orderManager.orders)
             {
-                foreach (var ingredient in order)
+                // Vi logger hvilken bestilling vi er på gennem en super jank måde, nemlig at tilføje
+                // bestillingen til en anden liste, der kun er til for at checke hvilken order der er korrekt
+                ingredientsList.Add(order);
+
+
+                // For hver bestilling i orders, kører vi igennem ingredienslisten for at se om det matcher den på tallerkenen
+                // Her sammenlignes maden på tallerken med en bestilling i orders listen, hvis de er ens (altså en tallerken er blevet stacked korrekt), fjernes den og vi får et signal til en bestilling er blevet lavet korrekt
+                if (order.SequenceEqual(collisionTarget.GetComponent<StackFoodOnPlate>().ingredientsOnPlate))
                 {
-                    // Her sammenlignes maden på tallerken med en bestilling i orders listen, hvis de er ens (altså en tallerken er blevet stacked korrekt), fjernes den og vi får et signal til en bestilling er blevet lavet korrekt
-                    if (order.SequenceEqual(collisionTarget.GetComponent<StackFoodOnPlate>().ingredientsOnPlate))
-                    {
-                        
-                        // Ikke kig på hvor grimt dene næste linje ser ud
-                        // Vi skal bruge en int til at pege på et specifikt level i listen, så vi konverterer både order og ingredient til en int, for at give os pladsen i orderlisten vi er nået til
-                        int orderNumber = (int)order[(int)ingredient];
+                    // Ikke kig på hvor grimt dene næste linje ser ud
+                    // Vi skal bruge en int til at pege på et specifikt level i listen, så vi konverterer både order og ingredient til en int, for at give os pladsen i orderlisten vi er nået til
+                    //int orderNumber = (int)order[(int)ingredient];
 
-                        Console.WriteLine("Equal list, order is correct!");
+                    // Virkelig jank måde at se hvilken bestilling, tallerken matcher. Den tæller op med en hver gang vi går en bestilling ned af listen, men count starter på en og list-index starter på nul, så vi er nødt til at minus'e med en for at de skal matche.
+                    int orderNumber = ingredientsList.Count - 1;
 
-                        // Der tilføjes til scoren lig resterende tid i bestillingen
-                        score += orderManager.orderTimes[orderNumber];
+                    //Debug.Log(orderNumber);
 
-                        // Derefter fjernes bestillingen og dens timer fra listerne
-                        orderManager.orderTimes.RemoveAt(orderNumber);
-                        orderManager.orders.RemoveAt(orderNumber);
-                        Destroy(collisionTarget);
-                        return;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Not Equal list");
-                    }
+                    Debug.Log("Equal list, order is correct!");
+
+                    // Der tilføjes til scoren lig resterende tid i bestillingen
+                    score += orderManager.orderTimes[orderNumber];
+
+                    // Derefter fjernes bestillingen og dens timer fra listerne
+                    orderManager.orderTimes.RemoveAt(orderNumber);
+                    orderManager.orders.RemoveAt(orderNumber);
+
+                    // Tallerken-objektet bliver derefter slettet (NOTE: SKAL OGSÅ KUNNE SLETTE ALLE INGREDIENSER PÅ OBJEKTET)
+                    Destroy(collisionTarget.gameObject);
+
+                    // Vi resetter ingredientsListen
+                    ingredientsList.Clear();
+
+                    // Derefter returnere vi, så vi ikke itererer gennem resten af listerne, da vi allerede har fået en match og dermed ikke risikerer at få to matches med den samme tallerken, hvis der er to bestillinger der har samme ingredientsliste
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Not Equal list");
                 }
             }
 
 
-
-            Destroy(collisionTarget);
+            ingredientsList.Clear();
+            Destroy(collisionTarget.gameObject);
 
 
         }
