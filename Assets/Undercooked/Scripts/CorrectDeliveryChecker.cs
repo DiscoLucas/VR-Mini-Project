@@ -46,6 +46,16 @@ public class CorrectDeliveryChecker : MonoBehaviour
                     // Der tilføjes til scoren lig resterende tid i bestillingen
                     score += orderManager.orderTimes[orderNumber];
 
+                    // Her fjernes den korrensponderende orderReceipt fra scenen
+                    for (int i = 0; i < orderManager.orderPrefabs.Count; i++)
+                    {
+                        if (orderManager.orderPrefabs[i].gameObject.GetComponent<OrderReceiptUI>().orderNumber == orderNumber)
+                        {
+                            Destroy(orderManager.orderPrefabs[i].gameObject);
+                            return;
+                        }
+                    }
+
                     // Derefter fjernes bestillingen og dens timer fra listerne
                     orderManager.orderTimes.RemoveAt(orderNumber);
                     orderManager.orders.RemoveAt(orderNumber);

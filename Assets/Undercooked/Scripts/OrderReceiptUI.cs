@@ -13,6 +13,8 @@ public class OrderReceiptUI : MonoBehaviour
 
     public TMP_Text receiptText_TMP;
 
+    public int orderNumber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +22,11 @@ public class OrderReceiptUI : MonoBehaviour
         receiptText_TMP = GetComponentInChildren<TMP_Text>();
         costumerOrderManager = GetComponentInParent<CostumerOrderManager>();
 
-        //foreach (var ingredients in costumerOrderManager.orders[costumerOrderManager.orders.Count - 1])
-        //{
-        //    string ingredientString = ingredients.ToString();
-        //    //ingredientString.
-        //    ingredients_Text.Add();
-        //}
+        // Vi tilføjer dette gameObject til listen over orderPrefabs i costumerOrderManager, skal bruges til når den slettes igen
+        costumerOrderManager.orderPrefabs.Add(gameObject);
+
+        // finder ud af hvilken bestilling vi har med at gøre når denne receipt bliver instantieret, så vi ved hvilken en vi skal kalde når orderen er complete
+        orderNumber = costumerOrderManager.orders.Count - 1;
 
         for (int i = 0; i < costumerOrderManager.orders[costumerOrderManager.orders.Count - 1].Count; i++)
         {
