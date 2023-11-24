@@ -13,6 +13,8 @@ public class CorrectDeliveryChecker : MonoBehaviour
 
     public float score;
 
+    public float waitTimeBeforeDeletion;
+
     public List<List<Ingredients>> ingredientsList = new List<List<Ingredients>>();
 
     private void OnTriggerEnter(Collider collisionTarget)
@@ -33,9 +35,6 @@ public class CorrectDeliveryChecker : MonoBehaviour
                 // Her sammenlignes maden på tallerken med en bestilling i orders listen, hvis de er ens (altså en tallerken er blevet stacked korrekt), fjernes den og vi får et signal til en bestilling er blevet lavet korrekt
                 if (order.SequenceEqual(collisionTarget.GetComponent<StackFoodOnPlate>().ingredientsOnPlate))
                 {
-                    // Ikke kig på hvor grimt dene næste linje ser ud
-                    // Vi skal bruge en int til at pege på et specifikt level i listen, så vi konverterer både order og ingredient til en int, for at give os pladsen i orderlisten vi er nået til
-                    //int orderNumber = (int)order[(int)ingredient];
 
                     // Virkelig jank måde at se hvilken bestilling, tallerken matcher. Den tæller op med en hver gang vi går en bestilling ned af listen, men count starter på en og list-index starter på nul, så vi er nødt til at minus'e med en for at de skal matche.
                     int orderNumber = ingredientsList.Count - 1;
@@ -51,11 +50,11 @@ public class CorrectDeliveryChecker : MonoBehaviour
                     orderManager.orderTimes.RemoveAt(orderNumber);
                     orderManager.orders.RemoveAt(orderNumber);
 
-                    // Tallerken-objektet bliver derefter slettet (NOTE: SKAL OGSÅ KUNNE SLETTE ALLE INGREDIENSER PÅ OBJEKTET)
-                    Destroy(collisionTarget.gameObject);
-
                     // Vi resetter ingredientsListen
                     ingredientsList.Clear();
+
+                    // Tallerken-objektet bliver derefter slettet efter en bestemt tid (NOTE: SKAL OGSÅ KUNNE SLETTE ALLE INGREDIENSER PÅ OBJEKTET)
+                    collisionTarget.gameObject.GetComponent<StackFoodOnPlate>().DestroyPlateAndFood(waitTimeBeforeDeletion);
 
                     // Derefter returnere vi, så vi ikke itererer gennem resten af listerne, da vi allerede har fået en match og dermed ikke risikerer at få to matches med den samme tallerken, hvis der er to bestillinger der har samme ingredientsliste
                     return;
@@ -66,9 +65,9 @@ public class CorrectDeliveryChecker : MonoBehaviour
                 }
             }
 
-
+            // Hvis den ikke matcher listen, reset ingredientsListen og slet tallerken objektet
             ingredientsList.Clear();
-            Destroy(collisionTarget.gameObject);
+            collisionTarget.gameObject.GetComponent<StackFoodOnPlate>().DestroyPlateAndFood(waitTimeBeforeDeletion);
 
 
         }

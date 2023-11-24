@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.Controls;
 
 public class CostumerOrderManager : MonoBehaviour
 {
-
+    public static CostumerOrderManager instance { get; private set; }
     //public Ingredients ingredient;
     //public List<Ingredients> ingredientsInOrder;
 
@@ -21,6 +21,25 @@ public class CostumerOrderManager : MonoBehaviour
     public float waitTimeBetweenOrders;
 
     bool timeForNewOrder = true;
+
+
+    // For order receipt spawn
+    public GameObject orderPrefab;
+
+    public Transform nextReceiptSpawnpoint;
+
+
+    public void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -104,6 +123,7 @@ public class CostumerOrderManager : MonoBehaviour
         orderTimes.Add(orderTimeTimer);
 
         // KØR IMPLEMENTATION TIL AT SPAWNE EN SEDDEL DER VISER RÆKKEFØLGEN HER
+        Instantiate(orderPrefab, nextReceiptSpawnpoint);
 
     }
 

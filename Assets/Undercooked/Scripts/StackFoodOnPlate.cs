@@ -20,10 +20,14 @@ public class StackFoodOnPlate : MonoBehaviour
     {
         if (other.tag == "FoodItem")
         {
+            // Hvis de er en FoodItem (har scriptet) og ikke er på et gameobject som allerede er i listen af gameobjects på tallerken
             if (other.GetComponent<FoodItem>() && !foodObjects.Contains(other.gameObject))
             {
+                // Log hvilken ingredienstype der bliver sat på tallerkenen
                 ingredientsOnPlate.Add(other.GetComponent<FoodItem>().ingredientType);
 
+
+                // Log hvilket gameObject der bliver sat på tallerkenen
                 foodObjects.Add(other.gameObject);
 
                 //snapDistance += other.gameObject.GetComponent<SphereCollider>().radius;
@@ -35,17 +39,18 @@ public class StackFoodOnPlate : MonoBehaviour
 
                 Debug.Log(snapDistances.Count);
 
+                // Hvis det er den første foodItem, tilføj dens halve radius til snapDistances listen, som bruges til at placere alle ingredienserne forskudt fra hinanden
                 if (snapDistances.Count == 0)
                 {
                     snapDistances.Add(other.gameObject.GetComponent<SphereCollider>().radius / 2);
                 }
                 else
                 {
-                    Debug.Log("Count 1"); 
+                    // Ellers tilføjes snapdistance, ligmed den forrige ingredients snapdistance + dette objekts snapdistance
                     snapDistances.Add(snapDistances[foodCount - 1] + (other.gameObject.GetComponent<SphereCollider>().radius / 2));
-                    //lastFoodCount++;
                 }
 
+                // Foodcout tælles op for at vise hvilken ingrediensnummer vi er nået til
                 foodCount++;
             }
             else
@@ -58,16 +63,16 @@ public class StackFoodOnPlate : MonoBehaviour
         }
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    // Bruges til correctdeliverychecker og skraldespanden, når tallerkenen og ingredienser på tallerkenen skal slettes
+    public void DestroyPlateAndFood(float waitTime)
     {
-        
+        StartCoroutine(WaitThenDestroy(waitTime));
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Her kører vi igennem listen af foodObjects på tallerkenen og låser dem fast til tallerkenen, forskudt fra hinanden via snapDistance listen
         if (ingredientsOnPlate.Count > 0) 
         { 
             for (int i = 0; i < foodObjects.Count; i++)
@@ -77,4 +82,17 @@ public class StackFoodOnPlate : MonoBehaviour
             }
         }
     }
+
+    // Venter x sekunder og derefter sletter alle foodObjects på tallerkenen og derefter tallerkenen selv
+    IEnumerator WaitThenDestroy(float time)
+    {
+        yield return new WaitForSeconds(time);
+        foreach (var item in foodObjects)
+        {
+            Destroy(item);
+        }
+        Destroy(gameObject);
+    }
+
+
 }
