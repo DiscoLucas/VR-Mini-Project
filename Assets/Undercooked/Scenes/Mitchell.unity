@@ -901,8 +901,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stoveTop: {fileID: 1923290798}
-  timeCooked: 0
-  finishTime: 10
+  timeCooked: 4
+  finishTime: 5
   finishWindow: 5
   raw: {r: 0.87, g: 0.495175, b: 0.4611, a: 0}
   cooked: {r: 0.45299998, g: 0.32497826, b: 0.2314239, a: 0}
@@ -3830,6 +3830,7 @@ MonoBehaviour:
   - {fileID: 1950439016}
   - {fileID: 501973981}
   - {fileID: 1707129814}
+  currentIngredient: 0
 --- !u!54 &1950439019
 Rigidbody:
   m_ObjectHideFlags: 0

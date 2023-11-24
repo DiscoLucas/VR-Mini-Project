@@ -14,9 +14,15 @@ public class Patty : MonoBehaviour
     public Color cooked;
     private new Renderer renderer;
     public PattyState currentState;
-    private bool isOnStove;
+    private static bool isOnStove;
 
-    // Patty enum states
+    void Start()
+    {
+        renderer = GetComponent<Renderer>();
+        raw = renderer.material.color;
+        currentState = PattyState.RawState;
+    }
+    
     public enum PattyState
     {
         RawState,
@@ -40,6 +46,9 @@ public class Patty : MonoBehaviour
                 if (timeCooked >= finishTime + finishWindow) //if the patty is cooked
                 {
                     SetState(PattyState.BurntState);
+                    burnTimer += Time.deltaTime;
+                    float burnProgress = Mathf.Clamp01(burnTimer / finishWindow);
+                    renderer.material.color = Color.Lerp(cooked, Color.black, burnProgress);
                 }
                 else
                 {
@@ -49,33 +58,18 @@ public class Patty : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        renderer = GetComponent<Renderer>();
-        raw = renderer.material.color;
-        currentState = PattyState.RawState;
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (currentState == PattyState.BurntState && isOnStove)
-        {
-            burnTimer += Time.deltaTime;
-            float burnProgress = Mathf.Clamp01(burnTimer / finishWindow);
-            renderer.material.color = Color.Lerp(cooked, Color.black, burnProgress);
 
-            if (burnTimer >= finishWindow)
-            {
-                SetState(PattyState.BurntState);
-            }
-        }
-        
     }
 
 
-
+    /// <summary>
+    /// Used to set the state of the patty.
+    /// I think it uses the enum PattyState to do this
+    /// </summary>
+    /// <param name="newState"></param>
     private void SetState(PattyState newState)
     {
         currentState = newState;
@@ -88,20 +82,9 @@ public class Patty : MonoBehaviour
 
             case PattyState.BurntState:
                 Debug.Log("Patty is burnt");
-                burnTimer = 0f;
                 break;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject == stoveTop)
-        {
-            isOnStove = true;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        isOnStove = false;
-    }
+
 }
