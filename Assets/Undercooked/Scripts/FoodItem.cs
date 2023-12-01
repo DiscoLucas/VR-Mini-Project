@@ -45,5 +45,57 @@ public class FoodItem : MonoBehaviour
 
     public Ingredients ingredientType;
 
+    public bool isGrabbed = false;
+
+
+    // ONLY FOR CHOPPABLE OBJEKTER
+    public GameObject[] choppingObjects;
+    int chopCounter = 0;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        foreach (GameObject item in choppingObjects)
+        {
+            item.GetComponent<MeshRenderer>().enabled = false;
+        }
+        choppingObjects[0].GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Knife" && isChoppable)
+        {
+            if (chopCounter < choppingObjects.Length)
+            {
+
+                choppingObjects[chopCounter].GetComponent<MeshRenderer>().enabled = false;
+                chopCounter++;
+                choppingObjects[chopCounter].GetComponent<MeshRenderer>().enabled = true;
+
+            }
+            else
+            {
+                Debug.Log("færdigt chopped");
+            }
+
+        }
+    }
+
+
+
+    public void isGrabbedControl(bool Grabbed)
+    {
+        isGrabbed = Grabbed;
+    }
 
 }
