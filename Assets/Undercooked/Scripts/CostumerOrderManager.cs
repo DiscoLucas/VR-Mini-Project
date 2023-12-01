@@ -157,11 +157,20 @@ public class CostumerOrderManager : MonoBehaviour
             if (orderPrefabs[i].gameObject.GetComponent<OrderReceiptUI>().orderNumber == listIndex)
             {
                 Destroy(orderPrefabs[i].gameObject);
-                return;
+                orderPrefabs.RemoveAt(listIndex);
+                orderTimes.RemoveAt(listIndex);
+                orders.RemoveAt(listIndex);
+                //return;
             }
+
+            //orderPrefabs[i].gameObject.GetComponent<OrderReceiptUI>().orderNumber = i;
         }
-        orderTimes.RemoveAt(listIndex);
-        orders.RemoveAt(listIndex);
+        for (int i = 0; i < orderPrefabs.Count; i++)
+        {
+            Debug.Log("Hej");
+            orderPrefabs[i].gameObject.GetComponent<OrderReceiptUI>().orderNumber = i;
+        }
+
     }
 
 }

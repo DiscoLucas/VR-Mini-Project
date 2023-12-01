@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 904828761}
   m_Layer: 0
   m_Name: Sphere (1)
-  m_TagString: FoodItem
+  m_TagString: FinishedFoodItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 1693525192}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: FoodItem
+  m_TagString: FinishedFoodItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -949,10 +949,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 794602233229501250, guid: ea3dbe5fca1525940a4f469db5cded92,
+        type: 3}
+      propertyPath: orderTimeTimer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 794602233229501250, guid: ea3dbe5fca1525940a4f469db5cded92,
+        type: 3}
+      propertyPath: waitTimeBetweenOrders
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3885261627336607552, guid: ea3dbe5fca1525940a4f469db5cded92,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.43
+      value: -1.024
       objectReference: {fileID: 0}
     - target: {fileID: 3885261627336607552, guid: ea3dbe5fca1525940a4f469db5cded92,
         type: 3}
@@ -1072,7 +1082,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3491612323685539562, guid: 746d46b9056331d42ac54a10903aa65c,
+        type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3362086727
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3491612323685539562, guid: 746d46b9056331d42ac54a10903aa65c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -16,6 +16,8 @@ public class OrderReceiptUI : MonoBehaviour
 
     public int orderNumber;
 
+    public float orderTimer;
+
     public Image timerImage;
 
     public List<Color> colorList = new List<Color>();
@@ -23,15 +25,18 @@ public class OrderReceiptUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         receiptText_TMP = GetComponentInChildren<TMP_Text>();
         costumerOrderManager = GetComponentInParent<CostumerOrderManager>();
+
+        orderTimer = costumerOrderManager.orderTimeTimer;
 
         // Vi tilføjer dette gameObject til listen over orderPrefabs i costumerOrderManager, skal bruges til når den slettes igen
         costumerOrderManager.orderPrefabs.Add(gameObject);
 
         // finder ud af hvilken bestilling vi har med at gøre når denne receipt bliver instantieret, så vi ved hvilken en vi skal kalde når orderen er complete
-        orderNumber = costumerOrderManager.orders.Count - 1;
+        //orderNumber = costumerOrderManager.orders.Count - 1;
+        orderNumber = costumerOrderManager.orderPrefabs.IndexOf(gameObject);
 
         for (int i = 0; i < costumerOrderManager.orders[costumerOrderManager.orders.Count - 1].Count; i++)
         {
@@ -44,7 +49,11 @@ public class OrderReceiptUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerImage.fillAmount = Mathf.InverseLerp(0, costumerOrderManager.orderTimeTimer, costumerOrderManager.orderTimes[orderNumber]);
+        orderTimer -= Time.deltaTime;
+
+        //orderNumber = costumerOrderManager.orderPrefabs.IndexOf(gameObject);
+
+        timerImage.fillAmount = Mathf.InverseLerp(0, costumerOrderManager.orderTimeTimer, orderTimer);
         if (timerImage.fillAmount <= 0.5f && timerImage.fillAmount > 0.2f)
         {
             timerImage.color = colorList[1];

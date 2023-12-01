@@ -56,13 +56,17 @@ public class FoodItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.tag = "FoodItem";
+        //gameObject.tag = "FoodItem";
 
         foreach (GameObject item in choppingObjects)
         {
             item.GetComponent<MeshRenderer>().enabled = false;
         }
-        choppingObjects[0].GetComponent<MeshRenderer>().enabled = true;
+        if (isChoppable)
+        {
+           choppingObjects[0].GetComponent<MeshRenderer>().enabled = true;
+        }
+
     }
 
     // Update is called once per frame
