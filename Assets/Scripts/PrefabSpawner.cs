@@ -6,6 +6,7 @@ public class PrefabSpawner : MonoBehaviour
 {
     public GameObject prefab;
     [SerializeField] Transform spawnPoint;
+    public AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,12 @@ public class PrefabSpawner : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        audio.Play();
+        SpawnPrefab();
+        
+    }
     public void SpawnPrefab()
     {
         Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
