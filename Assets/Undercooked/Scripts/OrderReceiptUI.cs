@@ -30,7 +30,7 @@ public class OrderReceiptUI : MonoBehaviour
 
         for (int i = 0; i < costumerOrderManager.orders[costumerOrderManager.orders.Count - 1].Count; i++)
         {
-            string ingredientString = costumerOrderManager.orders[costumerOrderManager.orders.Count - 1][i].ToString();
+            string ingredientString = (i+1) + ". " + costumerOrderManager.orders[costumerOrderManager.orders.Count - 1][i].ToString();
 
             receiptText_TMP.text += ingredientString + Environment.NewLine;
         }
