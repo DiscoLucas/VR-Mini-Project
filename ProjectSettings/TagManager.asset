@@ -10,6 +10,7 @@ TagManager:
   - Fluid
   - Burner
   - Plate
+  - FinishedFoodItem
   layers:
   - Default
   - TransparentFX

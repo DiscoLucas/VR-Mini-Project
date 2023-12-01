@@ -47,18 +47,21 @@ public class CorrectDeliveryChecker : MonoBehaviour
                     score += orderManager.orderTimes[orderNumber];
 
                     // Her fjernes den korrensponderende orderReceipt fra scenen
-                    for (int i = 0; i < orderManager.orderPrefabs.Count; i++)
-                    {
-                        if (orderManager.orderPrefabs[i].gameObject.GetComponent<OrderReceiptUI>().orderNumber == orderNumber)
-                        {
-                            Destroy(orderManager.orderPrefabs[i].gameObject);
-                            return;
-                        }
-                    }
+                    // og derefter fjernes bestillingen og dens timer fra listerne
+                    orderManager.RemoveAt(orderNumber);
 
-                    // Derefter fjernes bestillingen og dens timer fra listerne
-                    orderManager.orderTimes.RemoveAt(orderNumber);
-                    orderManager.orders.RemoveAt(orderNumber);
+                    //for (int i = 0; i < orderManager.orderPrefabs.Count; i++)
+                    //{
+                    //    if (orderManager.orderPrefabs[i].gameObject.GetComponent<OrderReceiptUI>().orderNumber == orderNumber)
+                    //    {
+                    //        Destroy(orderManager.orderPrefabs[i].gameObject);
+                    //        return;
+                    //    }
+                    //}
+
+                    //// Derefter fjernes bestillingen og dens timer fra listerne
+                    //orderManager.orderTimes.RemoveAt(orderNumber);
+                    //orderManager.orders.RemoveAt(orderNumber);
 
                     // Vi resetter ingredientsListen
                     ingredientsList.Clear();

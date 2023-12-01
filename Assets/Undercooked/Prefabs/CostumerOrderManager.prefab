@@ -49,3 +49,7 @@ MonoBehaviour:
   orderTimeTimer: 30
   orderTimes: []
   waitTimeBetweenOrders: 10
+  orderPrefab: {fileID: 6064169518094588649, guid: 153ef2038a940ee43998f99ee3908d4e,
+    type: 3}
+  nextReceiptSpawnpoint: {fileID: 3885261627336607552}
+  orderPrefabs: []

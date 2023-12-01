@@ -70,17 +70,18 @@ public class CostumerOrderManager : MonoBehaviour
                 // Hvis en bestillingstimer er nede på 0, fjern den. (Måske også straf med minuspoint? SENERE IMPLEMENTATION)
                 if (orderTimes[i] <= 0f)
                 {
-                    // Her fjernes den korrensponderende orderReceipt også fra scenen
-                    for (int orderNumber = 0; orderNumber < orderPrefabs.Count; orderNumber++)
-                    {
-                        if (orderPrefabs[orderNumber].gameObject.GetComponent<OrderReceiptUI>().orderNumber == i)
-                        {
-                            Destroy(orderPrefabs[orderNumber].gameObject);
-                            return;
-                        }
-                    }
-                    orderTimes.RemoveAt(i);
-                    orders.RemoveAt(i);
+                    // Her fjernes den korrensponderende orderReceipt fra scenen, samt bestillingen og dens timer
+                    RemoveAt(i);
+                    //for (int orderNumber = 0; orderNumber < orderPrefabs.Count; orderNumber++)
+                    //{
+                    //    if (orderPrefabs[orderNumber].gameObject.GetComponent<OrderReceiptUI>().orderNumber == i)
+                    //    {
+                    //        Destroy(orderPrefabs[orderNumber].gameObject);
+                    //        return;
+                    //    }
+                    //}
+                    //orderTimes.RemoveAt(i);
+                    //orders.RemoveAt(i);
 
                 }
             }
@@ -148,6 +149,19 @@ public class CostumerOrderManager : MonoBehaviour
         timeForNewOrder = true;
     }
 
-
+    public void RemoveAt(int listIndex)
+    {
+        // Her fjernes den korrensponderende orderReceipt fra scenen
+        for (int i = 0; i < orderPrefabs.Count; i++)
+        {
+            if (orderPrefabs[i].gameObject.GetComponent<OrderReceiptUI>().orderNumber == listIndex)
+            {
+                Destroy(orderPrefabs[i].gameObject);
+                return;
+            }
+        }
+        orderTimes.RemoveAt(listIndex);
+        orders.RemoveAt(listIndex);
+    }
 
 }
