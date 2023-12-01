@@ -307,9 +307,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChoppable: 0
   isGrillable: 0
-  amountsOfChops: 0
   foodPrefab: {fileID: 0}
   ingredientType: 0
+  isGrabbed: 0
+  choppingObjects: []
 --- !u!54 &904828762
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -836,9 +837,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChoppable: 0
   isGrillable: 0
-  amountsOfChops: 0
   foodPrefab: {fileID: 0}
   ingredientType: 0
+  isGrabbed: 0
+  choppingObjects: []
 --- !u!54 &1693525193
 Rigidbody:
   m_ObjectHideFlags: 0
