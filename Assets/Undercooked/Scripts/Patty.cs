@@ -68,9 +68,14 @@ public class Patty : MonoBehaviour
         if(other.gameObject == stoveTop)
         {
             isOnStove = true;
+            // turn on particle system for smoke
             particleSystem = GetComponent<ParticleSystem>();
             var emission = particleSystem;
             emission.Play();
+
+            // play sizzling sound
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
         }
     }
 
@@ -82,6 +87,10 @@ public class Patty : MonoBehaviour
             particleSystem = GetComponent<ParticleSystem>();
             var emission = particleSystem;
             emission.Stop();
+
+            // stop sizzling sound
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Stop();
         }
     }
 
