@@ -15,17 +15,17 @@ public class Patty : MonoBehaviour
     private new Renderer renderer;
     public PattyState currentState;
     private static bool isOnStove;
-    private ParticleSystem particleSystem;
+    //private new ParticleSystem particleSystem;
 
     void Start()
     {
         renderer = GetComponent<Renderer>();
         raw = renderer.material.color;
         currentState = PattyState.RawState;
-
-        if (particleSystem.isPlaying)
+        var ps = GetComponent<ParticleSystem>();
+        if (ps.isPlaying)
         {
-            particleSystem.Stop();
+            ps.Stop();
         }
     }
     
@@ -39,7 +39,7 @@ public class Patty : MonoBehaviour
 
     public void OnTriggerStay(Collider other) //when the patty enters the stove
     {
-        if (other.gameObject == stoveTop) //if the patty is on the stove
+        if (other.tag == "Burner") //if the patty is on the stove
         {
             timeCooked += Time.deltaTime; //add time to the timer
             float cookingProgress = Mathf.Clamp01(timeCooked / finishTime); //clamp the time to the finish time
@@ -65,13 +65,12 @@ public class Patty : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == stoveTop)
+        if(other.tag == "Burner")
         {
             isOnStove = true;
             // turn on particle system for smoke
-            particleSystem = GetComponent<ParticleSystem>();
-            var emission = particleSystem;
-            emission.Play();
+            var ps = GetComponent<ParticleSystem>();
+            ps.Play();
 
             // play sizzling sound
             AudioSource audio = GetComponent<AudioSource>();
@@ -81,12 +80,11 @@ public class Patty : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == stoveTop)
+        if (other.tag == "Burner")
         {
             isOnStove = false;
-            particleSystem = GetComponent<ParticleSystem>();
-            var emission = particleSystem;
-            emission.Stop();
+            var ps = GetComponent<ParticleSystem>();
+            ps.Stop();
 
             // stop sizzling sound
             AudioSource audio = GetComponent<AudioSource>();
@@ -113,11 +111,11 @@ public class Patty : MonoBehaviour
         switch (currentState)
         {
             case PattyState.CookedState:
-                Debug.Log("Patty is cooked");
+                //Debug.Log("Patty is cooked");
                 break;
 
             case PattyState.BurntState:
-                Debug.Log("Patty is burnt");
+                //Debug.Log("Patty is burnt");
                 break;
         }
     }
