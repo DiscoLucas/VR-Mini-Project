@@ -18,7 +18,7 @@ public class StackFoodOnPlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "FoodItem")
+        if (other.tag == "FinishedFoodItem")
         {
             // Hvis de er en FoodItem (har scriptet) og ikke er på et gameobject som allerede er i listen af gameobjects på tallerken
             if (other.GetComponent<FoodItem>() && !foodObjects.Contains(other.gameObject))
