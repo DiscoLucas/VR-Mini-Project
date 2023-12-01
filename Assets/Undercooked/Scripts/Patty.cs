@@ -6,7 +6,7 @@ using UnityEngine;
 public class Patty : MonoBehaviour
 {
     public GameObject stoveTop;
-    public float timeCooked;
+    [SerializeField] float timeCooked;
     public float finishTime;
     public float finishWindow; // the window of time where the patty is considered cooked, before it burns
     private float burnTimer;
@@ -15,12 +15,18 @@ public class Patty : MonoBehaviour
     private new Renderer renderer;
     public PattyState currentState;
     private static bool isOnStove;
+    private ParticleSystem particleSystem;
 
     void Start()
     {
         renderer = GetComponent<Renderer>();
         raw = renderer.material.color;
         currentState = PattyState.RawState;
+
+        if (particleSystem.isPlaying)
+        {
+            particleSystem.Stop();
+        }
     }
     
     public enum PattyState
@@ -55,6 +61,36 @@ public class Patty : MonoBehaviour
                     SetState(PattyState.CookedState);
                 }
             }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject == stoveTop)
+        {
+            isOnStove = true;
+            // turn on particle system for smoke
+            particleSystem = GetComponent<ParticleSystem>();
+            var emission = particleSystem;
+            emission.Play();
+
+            // play sizzling sound
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == stoveTop)
+        {
+            isOnStove = false;
+            particleSystem = GetComponent<ParticleSystem>();
+            var emission = particleSystem;
+            emission.Stop();
+
+            // stop sizzling sound
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Stop();
         }
     }
 
