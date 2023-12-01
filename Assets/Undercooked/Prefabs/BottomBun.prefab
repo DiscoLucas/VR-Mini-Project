@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5614885780531895170}
   - component: {fileID: 2361171022002711913}
   - component: {fileID: 7664518579749342907}
+  - component: {fileID: 1049048615098458186}
   m_Layer: 0
   m_Name: BottomBun
   m_TagString: FinishedFoodItem
@@ -280,6 +281,36 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   velocityThreshold: 2
   jumpAngleInDegree: 60
+--- !u!114 &1049048615098458186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638233468107858349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdd9b7cda79da44d96011fb458efefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioDatas:
+  - title: Chop
+    audioClip: {fileID: 0}
+    volume: 1
+    loop: 0
+  - title: DoneChop
+    audioClip: {fileID: 0}
+    volume: 1
+    loop: 0
+  - title: Grilling
+    audioClip: {fileID: 0}
+    volume: 1
+    loop: 0
+  - title: DoneGrilling
+    audioClip: {fileID: 0}
+    volume: 1
+    loop: 0
+  audioSources: []
 --- !u!1001 &8539101799679437467
 PrefabInstance:
   m_ObjectHideFlags: 0

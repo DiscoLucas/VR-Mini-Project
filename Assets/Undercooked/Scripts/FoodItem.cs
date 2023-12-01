@@ -47,6 +47,8 @@ public class FoodItem : MonoBehaviour
 
     public bool isGrabbed = false;
 
+    AudioManager audioManager;
+
 
     // ONLY FOR CHOPPABLE OBJEKTER
     public GameObject[] choppingObjects;
@@ -57,6 +59,9 @@ public class FoodItem : MonoBehaviour
     void Start()
     {
         //gameObject.tag = "FoodItem";
+
+        audioManager = GetComponent<AudioManager>();
+
 
         foreach (GameObject item in choppingObjects)
         {
@@ -86,6 +91,7 @@ public class FoodItem : MonoBehaviour
                 choppingObjects[chopCounter].GetComponent<MeshRenderer>().enabled = false;
                 chopCounter++;
                 choppingObjects[chopCounter].GetComponent<MeshRenderer>().enabled = true;
+                audioManager.PlayClip(0);
 
             }
             else
@@ -94,6 +100,7 @@ public class FoodItem : MonoBehaviour
                 {
                     gameObject.tag = "FinishedFoodItem";
                 }
+                audioManager.PlayClip(1);
                 Debug.Log("færdigt chopped");
             }
 

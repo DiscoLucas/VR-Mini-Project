@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 964205233999958498}
   - component: {fileID: 6785616880856790781}
   - component: {fileID: 7820012820519081109}
+  - component: {fileID: 3780888812510409024}
   m_Layer: 0
   m_Name: Beef
   m_TagString: FoodItem
@@ -297,6 +298,36 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   velocityThreshold: 2
   jumpAngleInDegree: 60
+--- !u!114 &3780888812510409024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5568207078128370638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdd9b7cda79da44d96011fb458efefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioDatas:
+  - title: Chop
+    audioClip: {fileID: 0}
+    volume: 1
+    loop: 0
+  - title: DoneChop
+    audioClip: {fileID: 0}
+    volume: 1
+    loop: 0
+  - title: Grilling
+    audioClip: {fileID: 0}
+    volume: 1
+    loop: 0
+  - title: DoneGrilling
+    audioClip: {fileID: 0}
+    volume: 1
+    loop: 0
+  audioSources: []
 --- !u!1001 &2554122317763703122
 PrefabInstance:
   m_ObjectHideFlags: 0
