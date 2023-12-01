@@ -85,7 +85,7 @@ public class FoodItem : MonoBehaviour
     {
         if (other.tag == "Knife" && isChoppable)
         {
-            if (chopCounter < choppingObjects.Length)
+            if (chopCounter < choppingObjects.Length - 1)
             {
 
                 choppingObjects[chopCounter].GetComponent<MeshRenderer>().enabled = false;
