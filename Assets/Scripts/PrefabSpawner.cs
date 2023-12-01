@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class PrefabSpawner : MonoBehaviour
 {
@@ -19,7 +20,6 @@ public class PrefabSpawner : MonoBehaviour
     {
         
     }
-
     private void OnTriggerEnter(Collider other)
     {
         audio.Play();
