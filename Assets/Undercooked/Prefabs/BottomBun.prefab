@@ -147,7 +147,7 @@ MonoBehaviour:
   m_FirstSelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1947588320906506054}
         m_TargetAssemblyTypeName: FoodItem, Assembly-CSharp
         m_MethodName: isGrabbedControl
         m_Mode: 6
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_LastSelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1947588320906506054}
         m_TargetAssemblyTypeName: FoodItem, Assembly-CSharp
         m_MethodName: isGrabbedControl
         m_Mode: 6
