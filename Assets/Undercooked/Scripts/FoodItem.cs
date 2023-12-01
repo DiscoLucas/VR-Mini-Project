@@ -39,7 +39,7 @@ public class FoodItem : MonoBehaviour
     [SerializeField] bool isChoppable;
     [SerializeField] bool isGrillable;
 
-    [SerializeField] int amountsOfChops;
+    //[SerializeField] int amountsOfChops;
 
     public GameObject foodPrefab;
 
@@ -56,6 +56,7 @@ public class FoodItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.tag = "FoodItem";
 
         foreach (GameObject item in choppingObjects)
         {
@@ -85,6 +86,10 @@ public class FoodItem : MonoBehaviour
             }
             else
             {
+                if (ingredientType == Ingredients.Tomato || ingredientType == Ingredients.Onion)
+                {
+                    gameObject.tag = "FinishedFoodItem";
+                }
                 Debug.Log("færdigt chopped");
             }
 
