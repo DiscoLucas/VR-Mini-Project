@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 5568207078128370638}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -138,7 +138,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 3
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -344,7 +344,7 @@ PrefabInstance:
     - target: {fileID: 6246248068098085742, guid: 324dbc755f87fd549a7890519c4cf9a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0168
       objectReference: {fileID: 0}
     - target: {fileID: 6246248068098085742, guid: 324dbc755f87fd549a7890519c4cf9a1,
         type: 3}
@@ -386,12 +386,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6262679415641874352, guid: 324dbc755f87fd549a7890519c4cf9a1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7795355567926536439, guid: 324dbc755f87fd549a7890519c4cf9a1,
         type: 3}
       propertyPath: m_Name
       value: Burger patty
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6262679415641874352, guid: 324dbc755f87fd549a7890519c4cf9a1, type: 3}
+    - {fileID: 8677678706184065234, guid: 324dbc755f87fd549a7890519c4cf9a1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

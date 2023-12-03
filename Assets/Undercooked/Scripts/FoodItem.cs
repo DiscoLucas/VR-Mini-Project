@@ -66,6 +66,7 @@ public class FoodItem : MonoBehaviour
         foreach (GameObject item in choppingObjects)
         {
             item.GetComponent<MeshRenderer>().enabled = false;
+            item.transform.localPosition = Vector3.zero;
         }
         if (isChoppable)
         {

@@ -130,7 +130,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 3
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -240,7 +240,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -319,6 +319,7 @@ MonoBehaviour:
     audioClip: {fileID: 0}
     volume: 1
     loop: 0
+  audioSources: []
 --- !u!1001 &253021897276972679
 PrefabInstance:
   m_ObjectHideFlags: 0
