@@ -30,6 +30,8 @@ public class CorrectDeliveryChecker : MonoBehaviour
                 // bestillingen til en anden liste, der kun er til for at checke hvilken order der er korrekt
                 ingredientsList.Add(order);
 
+                Debug.Log("Order " + order);
+                Debug.Log("Plate " + collisionTarget.GetComponent<StackFoodOnPlate>().ingredientsOnPlate);
 
                 // For hver bestilling i orders, kører vi igennem ingredienslisten for at se om det matcher den på tallerkenen
                 // Her sammenlignes maden på tallerken med en bestilling i orders listen, hvis de er ens (altså en tallerken er blevet stacked korrekt), fjernes den og vi får et signal til en bestilling er blevet lavet korrekt

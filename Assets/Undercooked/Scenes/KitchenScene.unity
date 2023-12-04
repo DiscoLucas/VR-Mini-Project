@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18207073, g: 0.2829112, b: 0.34419775, a: 1}
+  m_IndirectSpecularColor: {r: 0.18182495, g: 0.28308266, b: 0.34421194, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -893,6 +893,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird Particle System
       objectReference: {fileID: 0}
+    - target: {fileID: 8028346145467852790, guid: b10a210829d143746abbc9bbcdf8a45f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1287,6 +1292,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mountain (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 428954577326337914, guid: b5820ac3976da76428b9ac6355d11995,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1060636499237680576, guid: b5820ac3976da76428b9ac6355d11995,
         type: 3}
@@ -1808,6 +1818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterLilies (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4305866492511819309, guid: 669b18598070ecc429319ed7ba6bf89d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2105,6 +2120,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lighting and VFX
       objectReference: {fileID: 0}
+    - target: {fileID: 5794117095779015965, guid: 7e2bf708b6a130f4f850e09ab5600845,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8533916710688834948, guid: 7e2bf708b6a130f4f850e09ab5600845,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2224,6 +2244,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterLilies (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4305866492511819309, guid: 669b18598070ecc429319ed7ba6bf89d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2292,6 +2317,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterLilies (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4305866492511819309, guid: 669b18598070ecc429319ed7ba6bf89d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2359,6 +2389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaterLilies (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305866492511819309, guid: 669b18598070ecc429319ed7ba6bf89d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2741,6 +2776,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 3694881395453451723, guid: 842e5126da3aab945a2ff974e702a29e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4038897227434002289, guid: 842e5126da3aab945a2ff974e702a29e,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2879,6 +2919,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterLilies (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4305866492511819309, guid: 669b18598070ecc429319ed7ba6bf89d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2896,6 +2941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mountain
+      objectReference: {fileID: 0}
+    - target: {fileID: 428954577326337914, guid: b5820ac3976da76428b9ac6355d11995,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1060636499237680576, guid: b5820ac3976da76428b9ac6355d11995,
         type: 3}
@@ -3039,6 +3089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mountain (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 428954577326337914, guid: b5820ac3976da76428b9ac6355d11995,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1060636499237680576, guid: b5820ac3976da76428b9ac6355d11995,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -3116,6 +3171,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5899817049936709807, guid: 374c836f985443b4e9eed2b3956898c0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6533470671412204053, guid: 374c836f985443b4e9eed2b3956898c0,
         type: 3}
@@ -3563,6 +3623,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFormation (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5832743106904492045, guid: 641c1e323aa4c19448508833cedb1fd7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3655,11 +3720,84 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7664111488078615008, guid: b1e01bdabb10d7c43bb742d74229086f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1e01bdabb10d7c43bb742d74229086f, type: 3}
+--- !u!1001 &893297792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3895189904840694435, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_Name
+      value: SocketPlate
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 58.80227
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.3699996
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 70.81391
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8133397833814626726, guid: f6d3f59bd99f38b47a5aad882c926d72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f6d3f59bd99f38b47a5aad882c926d72, type: 3}
 --- !u!1 &953059363
 GameObject:
   m_ObjectHideFlags: 0
@@ -3947,6 +4085,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFormation (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5832743106904492045, guid: 641c1e323aa4c19448508833cedb1fd7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3964,6 +4107,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1821809895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1079490883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4830691180993350213, guid: 96e3fdb3868fd254f88fc350c34fac44,
+    type: 3}
+  m_PrefabInstance: {fileID: 1821809895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c4bc9cba64b9942988013ddbb2f67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1122962094
 GameObject:
   m_ObjectHideFlags: 0
@@ -4399,6 +4554,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockFormation
       objectReference: {fileID: 0}
+    - target: {fileID: 5832743106904492045, guid: 641c1e323aa4c19448508833cedb1fd7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4567,6 +4727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterLilies
       objectReference: {fileID: 0}
+    - target: {fileID: 4305866492511819309, guid: 669b18598070ecc429319ed7ba6bf89d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4589,7 +4754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1427689222
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -4823,6 +4988,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterLilies (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4305866492511819309, guid: 669b18598070ecc429319ed7ba6bf89d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4891,6 +5061,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock01
       objectReference: {fileID: 0}
+    - target: {fileID: 7664111488078615008, guid: b1e01bdabb10d7c43bb742d74229086f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4914,6 +5089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mountain (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 428954577326337914, guid: b5820ac3976da76428b9ac6355d11995,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1060636499237680576, guid: b5820ac3976da76428b9ac6355d11995,
         type: 3}
@@ -5399,6 +5579,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water Lily
       objectReference: {fileID: 0}
+    - target: {fileID: 3712457301507804884, guid: dc20412bce02dd243a7075d6e068bcc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5582,6 +5767,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 739280478}
     m_Modifications:
+    - target: {fileID: 125669000574911903, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 984171226763467325, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735598882363592791, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3041964678834076351, guid: 96e3fdb3868fd254f88fc350c34fac44,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5699,6 +5899,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6102363029377821241, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.219
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102363029377821241, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.416
+      objectReference: {fileID: 0}
     - target: {fileID: 6349973269590034597, guid: 96e3fdb3868fd254f88fc350c34fac44,
         type: 3}
       propertyPath: m_IsActive
@@ -5714,6 +5924,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 3.383
       objectReference: {fileID: 0}
+    - target: {fileID: 7283278846673746177, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: orderManager
+      value: 
+      objectReference: {fileID: 1079490883}
+    - target: {fileID: 7283278846673746177, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: waitTimeBeforeDeletion
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7449363253374517762, guid: 96e3fdb3868fd254f88fc350c34fac44,
         type: 3}
       propertyPath: m_IsActive
@@ -5728,6 +5948,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199646065555083783, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.930418
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199646065555083783, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.7427547
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199646065555083783, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.034791008
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199646065555083783, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.12862259
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199646065555083783, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -9.198424e-11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891201095198679830, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.749
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891201095198679830, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.433
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4325326162524360382, guid: 96e3fdb3868fd254f88fc350c34fac44, type: 3}
@@ -6123,6 +6378,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mountain (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 428954577326337914, guid: b5820ac3976da76428b9ac6355d11995,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1060636499237680576, guid: b5820ac3976da76428b9ac6355d11995,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -6217,3 +6477,4 @@ SceneRoots:
   - {fileID: 592029193}
   - {fileID: 1751366388}
   - {fileID: 1595077315}
+  - {fileID: 893297792}
