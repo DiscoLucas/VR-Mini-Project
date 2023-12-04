@@ -39,7 +39,7 @@ public class Patty : MonoBehaviour
 
     public void OnTriggerStay(Collider other) //when the patty enters the stove
     {
-        if (other.tag == "Burner") //if the patty is on the stove
+        if (other.CompareTag("Burner")) //if the patty is on the stove
         {
             timeCooked += Time.deltaTime; //add time to the timer
             float cookingProgress = Mathf.Clamp01(timeCooked / finishTime); //clamp the time to the finish time

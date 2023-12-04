@@ -27,13 +27,10 @@ public class HandAnimationController : MonoBehaviour
 
         handAnimation.SetFloat("Grab", grabValue);
 
-        Debug.Log("Grab percent" + grabValue);
 
         float fistValue = fistAnimation.action.ReadValue<float>();
 
         handAnimation.SetFloat("Fist", fistValue);
-
-        Debug.Log("Fisting percent" + fistValue);
 
 
     }

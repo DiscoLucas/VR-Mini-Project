@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18207073, g: 0.2829112, b: 0.34419775, a: 1}
+  m_IndirectSpecularColor: {r: 0.18181098, g: 0.28247714, b: 0.34305874, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5147,12 +5147,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3513584800268871770, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513584800268871770, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513584800268871770, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513584800268871770, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819237804947548308, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9990501
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819237804947548308, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.9343654
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819237804947548308, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.000000007471824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690949632476039982, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: choppingObjects.Array.data[9]
+      value: 
+      objectReference: {fileID: 7795355567926536439, guid: 324dbc755f87fd549a7890519c4cf9a1,
+        type: 3}
     - target: {fileID: 7949969745795372964, guid: 96e3fdb3868fd254f88fc350c34fac44,
         type: 3}
       propertyPath: m_Name
       value: Kitchen (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4325326162524360382, guid: 96e3fdb3868fd254f88fc350c34fac44, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
