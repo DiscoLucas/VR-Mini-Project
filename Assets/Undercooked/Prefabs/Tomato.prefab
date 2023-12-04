@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5207929242182159169}
   - component: {fileID: 4106658000694693018}
   - component: {fileID: 2356494194119939357}
+  - component: {fileID: 4744818873514782032}
   m_Layer: 0
   m_Name: Tomato
   m_TagString: FoodItem
@@ -64,6 +65,7 @@ MonoBehaviour:
   - {fileID: 518388489405421208}
   - {fileID: 4782269034249107435}
   - {fileID: 4399677820342250723}
+  onChoppingBoard: 0
 --- !u!135 &1056924717159353239
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -320,6 +322,27 @@ MonoBehaviour:
     volume: 1
     loop: 0
   audioSources: []
+--- !u!65 &4744818873514782032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303305912381453453}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.039278466, z: 0.12602347}
+  m_Center: {x: 0, y: 0.013037475, z: 0.0049996413}
 --- !u!1001 &253021897276972679
 PrefabInstance:
   m_ObjectHideFlags: 0

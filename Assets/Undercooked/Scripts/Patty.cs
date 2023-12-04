@@ -105,12 +105,14 @@ public class Patty : MonoBehaviour
             {
                 case PattyState.CookedState:
                     Debug.Log("Patty is cooked");
+                    gameObject.tag = "FinishedFoodItem";
                     audioManager.PlayClip(1);
 
                     break;
 
                 case PattyState.BurntState:
                     Debug.Log("Patty is burnt");
+                    gameObject.tag = "FoodItem";
                     main.startColor = Color.grey;
                     break;
             }

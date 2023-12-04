@@ -17,7 +17,26 @@ public class XRSocketTagInteractor : XRSocketInteractor
         return base.CanSelect(interactable) && interactable.transform.tag == targetTag;
     }
 
-    
+    protected override void OnSelectEntered(SelectEnterEventArgs args)
+    {
+        base.OnSelectEntered(args);
 
+        if (args.interactableObject.transform.gameObject.GetComponent<FoodItem>())
+        {
+            args.interactableObject.transform.gameObject.GetComponent<FoodItem>().onChoppingBoard = true;
+        }
+        
+    }
+
+    protected override void OnSelectExited(SelectExitEventArgs args)
+    {
+        base.OnSelectExited(args);
+
+        if (args.interactableObject.transform.gameObject.GetComponent<FoodItem>())
+        {
+            args.interactableObject.transform.gameObject.GetComponent<FoodItem>().onChoppingBoard = false;
+        }
+        
+    }
 
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6246248068098085742}
+  - component: {fileID: 1116421200433761921}
   - component: {fileID: 330927009491630185}
   - component: {fileID: 3519590682665468866}
   - component: {fileID: 3648064886141744738}
@@ -21,7 +22,7 @@ GameObject:
   - component: {fileID: 2804135010039430164}
   m_Layer: 0
   m_Name: Burger patty
-  m_TagString: Untagged
+  m_TagString: FoodItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,6 +42,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1116421200433761921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7795355567926536439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed175fb37f7e80418d812ffae2d2dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isChoppable: 0
+  isGrillable: 0
+  foodPrefab: {fileID: 0}
+  ingredientType: 3
+  isGrabbed: 0
+  choppingObjects: []
 --- !u!33 &330927009491630185
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -56,7 +75,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7795355567926536439}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

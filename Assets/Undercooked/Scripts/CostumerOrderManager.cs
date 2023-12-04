@@ -128,8 +128,8 @@ public class CostumerOrderManager : MonoBehaviour
 
         for (int i = 0; i < Random.Range(minNumberOfRandomIngredients,maxNumberOfRandomIngredients); i++)
         {
-            // Vi gør dette da de tre første Enums er Tomato, Onion og Lettuce
-            ingredientsInOrder.Add((Ingredients)Random.Range(0, 2));
+            // Vi gør dette da de tre første Enums er Tomato, Onion (og Lettuce)
+            ingredientsInOrder.Add((Ingredients)Random.Range(0, 1));
             //ingredient = (Ingredients)Random.Range(0, 2);
             //ingredientsInOrder.Add(ingredient);
 
