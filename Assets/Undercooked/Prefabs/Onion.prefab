@@ -312,11 +312,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioDatas:
   - title: Chop
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 3a6addee3e8443d4798d2d0802f120bf, type: 3}
     volume: 1
     loop: 0
   - title: DoneChop
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 291d59174e4040248863ab65bf917d2d, type: 3}
     volume: 1
     loop: 0
   - title: Grilling
@@ -819,17 +819,17 @@ PrefabInstance:
     - target: {fileID: 7762438176153548858, guid: 8be85f63d2c34d949a77fddd0d10f062,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7762438176153548858, guid: 8be85f63d2c34d949a77fddd0d10f062,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7762438176153548858, guid: 8be85f63d2c34d949a77fddd0d10f062,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7762438176153548858, guid: 8be85f63d2c34d949a77fddd0d10f062,
         type: 3}

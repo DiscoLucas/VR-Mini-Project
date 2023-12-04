@@ -101,6 +101,8 @@ public class Patty : MonoBehaviour
         {
             case PattyState.CookedState:
                 //Debug.Log("Patty is cooked");
+
+
                 break;
 
             case PattyState.BurntState:

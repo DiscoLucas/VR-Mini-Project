@@ -314,11 +314,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioDatas:
   - title: Chop
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 0794c9914b4c56540beb90f2f263cc9d, type: 3}
     volume: 1
     loop: 0
   - title: DoneChop
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 291d59174e4040248863ab65bf917d2d, type: 3}
     volume: 1
     loop: 0
   - title: Grilling

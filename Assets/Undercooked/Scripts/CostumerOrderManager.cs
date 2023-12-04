@@ -20,6 +20,8 @@ public class CostumerOrderManager : MonoBehaviour
 
     public float waitTimeBetweenOrders;
 
+    public float waitTimeBeforeFirstOrder;
+
     bool timeForNewOrder = true;
 
     // For order receipt spawn
@@ -28,6 +30,10 @@ public class CostumerOrderManager : MonoBehaviour
     public Transform nextReceiptSpawnpoint;
 
     public List<GameObject> orderPrefabs = new List<GameObject>();
+
+    public AudioSource source;
+
+    public AudioClip clip;
 
 
     // For round timer
@@ -55,6 +61,8 @@ public class CostumerOrderManager : MonoBehaviour
     void Start()
     {
         timeForNewOrder = true;
+
+        waitTimeBeforeFirstOrder = roundTimer - waitTimeBeforeFirstOrder;
     }
 
     // Update is called once per frame
@@ -64,7 +72,7 @@ public class CostumerOrderManager : MonoBehaviour
         roundTimer -= Time.deltaTime;
 
         // Hvis vi stadig er i runden
-        if (roundTimer > 0)
+        if (roundTimer > 0 && roundTimer < waitTimeBeforeFirstOrder)
         {
             // Som det første, start med at lave en ny bestilling, eller tik timeren til næste bestilling ned en smule
             if (timeForNewOrder)
@@ -158,11 +166,15 @@ public class CostumerOrderManager : MonoBehaviour
         // KØR IMPLEMENTATION TIL AT SPAWNE EN SEDDEL DER VISER RÆKKEFØLGEN HER
         Instantiate(orderPrefab, nextReceiptSpawnpoint);
 
+        source.PlayOneShot(clip);
+
+
     }
 
 
     IEnumerator CountDownToNextOrder()
     {
+        
         CreateNewOrder();
         timeForNewOrder = false;
         yield return new WaitForSeconds(waitTimeBetweenOrders);
