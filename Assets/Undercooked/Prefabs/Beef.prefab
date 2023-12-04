@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isChoppable: 1
   isGrillable: 0
-  foodPrefab: {fileID: 7795355567926536439, guid: 324dbc755f87fd549a7890519c4cf9a1,
+  foodPrefab: {fileID: 7795355567926536439, guid: 3d1eb9ba4c7abc14d8b3f6e4c3801816,
     type: 3}
   ingredientType: 3
   isGrabbed: 0
@@ -73,6 +73,7 @@ MonoBehaviour:
   - {fileID: 7682484447554235170}
   - {fileID: 220775288769921828}
   - {fileID: 1540687242332759570}
+  onChoppingBoard: 0
 --- !u!65 &7900531247881349968
 BoxCollider:
   m_ObjectHideFlags: 0
