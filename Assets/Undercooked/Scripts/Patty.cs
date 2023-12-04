@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Patty : MonoBehaviour
@@ -13,13 +10,16 @@ public class Patty : MonoBehaviour
     public Color cooked;
     private new Renderer renderer;
     public PattyState currentState;
+    [SerializeField] AudioManager audioManager;
+    private ParticleSystem ps;
 
     void Start()
     {
         renderer = GetComponent<Renderer>();
         raw = renderer.material.color;
         currentState = PattyState.RawState;
-        var ps = GetComponent<ParticleSystem>();
+        //var ps = GetComponent<ParticleSystem>();
+        ps = GetComponent<ParticleSystem>();
         if (ps.isPlaying)
         {
             ps.Stop();
@@ -69,8 +69,9 @@ public class Patty : MonoBehaviour
             ps.Play();
 
             // play sizzling sound
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.Play();
+            audioManager.PlayClip(0);
+            //AudioSource audio = GetComponent<AudioSource>();
+            //audio.Play();
         }
     }
 
@@ -82,8 +83,9 @@ public class Patty : MonoBehaviour
             ps.Stop();
 
             // stop sizzling sound
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.Stop();
+            audioManager.StopAudio(0);
+            //AudioSource audio = GetComponent<AudioSource>();
+            //audio.Stop();
         }
     }
 
@@ -95,21 +97,23 @@ public class Patty : MonoBehaviour
     /// <param name="newState"></param>
     private void SetState(PattyState newState)
     {
-        currentState = newState;
-
-        switch (currentState)
+        if (currentState != newState)
         {
-            case PattyState.CookedState:
-                //Debug.Log("Patty is cooked");
+            currentState = newState;
+            var main = ps.main;
+            switch (currentState)
+            {
+                case PattyState.CookedState:
+                    Debug.Log("Patty is cooked");
+                    audioManager.PlayClip(1);
 
+                    break;
 
-                break;
-
-            case PattyState.BurntState:
-                //Debug.Log("Patty is burnt");
-                break;
+                case PattyState.BurntState:
+                    Debug.Log("Patty is burnt");
+                    main.startColor = Color.grey;
+                    break;
+            }
         }
     }
-
-
 }
