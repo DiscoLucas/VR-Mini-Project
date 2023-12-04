@@ -15,11 +15,11 @@ public class Patty : MonoBehaviour
 
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        renderer = GetComponentInChildren<Renderer>();
         raw = renderer.material.color;
         currentState = PattyState.RawState;
         //var ps = GetComponent<ParticleSystem>();
-        ps = GetComponent<ParticleSystem>();
+        ps = GetComponentInChildren<ParticleSystem>();
         if (ps.isPlaying)
         {
             ps.Stop();

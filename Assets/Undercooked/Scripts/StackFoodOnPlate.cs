@@ -122,7 +122,7 @@ public class StackFoodOnPlate : MonoBehaviour
                 }
                 if (gameObject.GetComponent<BoxCollider>() && gameObject.GetComponent<BoxCollider>().enabled)
                 {
-                    snapDistances.Add(snapDistances[foodCount - 1] + (gameObject.GetComponent<BoxCollider>().size.y / 2));
+                    snapDistances.Add(snapDistances[foodCount - 1] + (gameObject.GetComponent<BoxCollider>().size.y));
                 }
             }
 
