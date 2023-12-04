@@ -62,12 +62,13 @@ public class FoodItem : MonoBehaviour
 
         audioManager = GetComponent<AudioManager>();
 
-
+        // disable all chopping objects
         foreach (GameObject item in choppingObjects)
         {
             item.GetComponent<MeshRenderer>().enabled = false;
             item.transform.localPosition = Vector3.zero;
         }
+        // enable only first chopping object
         if (isChoppable)
         {
            choppingObjects[0].GetComponent<MeshRenderer>().enabled = true;
@@ -86,12 +87,13 @@ public class FoodItem : MonoBehaviour
     {
         if (other.tag == "Knife" && isChoppable)
         {
+            // if the item is chopped less than the amount of objects in the array
             if (chopCounter < choppingObjects.Length - 1)
             {
-
-                choppingObjects[chopCounter].GetComponent<MeshRenderer>().enabled = false;
+                
+                choppingObjects[chopCounter].GetComponent<MeshRenderer>().enabled = false; // disable current chopping object
                 chopCounter++;
-                choppingObjects[chopCounter].GetComponent<MeshRenderer>().enabled = true;
+                choppingObjects[chopCounter].GetComponent<MeshRenderer>().enabled = true; // enable next chopping object
                 audioManager.PlayClip(0);
 
             }
@@ -100,6 +102,15 @@ public class FoodItem : MonoBehaviour
                 if (ingredientType == Ingredients.Tomato || ingredientType == Ingredients.Onion)
                 {
                     gameObject.tag = "FinishedFoodItem";
+                }
+                if (ingredientType == Ingredients.Meat) 
+                {
+                    Debug.Log("spawn burger patty");
+                    //Destroy(GetComponent<Collider>()); // remove physics components to avoid collision with burger patty
+                    //Destroy(GetComponent<Rigidbody>());
+                    Instantiate(choppingObjects[choppingObjects.Length - 1], transform.position, transform.rotation); // spawn raw burger patty
+                    audioManager.PlayClip(1);
+                    Destroy(gameObject); // game-end self
                 }
                 audioManager.PlayClip(1);
                 Debug.Log("færdigt chopped");
