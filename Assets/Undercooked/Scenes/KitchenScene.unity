@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18207073, g: 0.2829112, b: 0.34419775, a: 1}
+  m_IndirectSpecularColor: {r: 0.18181098, g: 0.28247714, b: 0.34305874, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5693,6 +5693,21 @@ PrefabInstance:
         type: 3}
       propertyPath: waitTimeBeforeFirstOrder
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733965084350070752, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: audioDatas.Array.data[1].title
+      value: GrillDone
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733965084350070752, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: audioDatas.Array.data[0].volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967734245255330681, guid: 96e3fdb3868fd254f88fc350c34fac44,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6029383750872140135, guid: 96e3fdb3868fd254f88fc350c34fac44,
         type: 3}
