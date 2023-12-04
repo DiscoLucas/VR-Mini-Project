@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6246248068098085742}
+  - component: {fileID: 1116421200433761921}
   - component: {fileID: 330927009491630185}
   - component: {fileID: 3519590682665468866}
   - component: {fileID: 3648064886141744738}
@@ -18,9 +19,10 @@ GameObject:
   - component: {fileID: 4298911929171179661}
   - component: {fileID: 6922430748576675899}
   - component: {fileID: 3035025330406436139}
+  - component: {fileID: 2804135010039430164}
   m_Layer: 0
   m_Name: Burger patty
-  m_TagString: Untagged
+  m_TagString: FoodItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +42,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1116421200433761921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7795355567926536439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed175fb37f7e80418d812ffae2d2dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isChoppable: 0
+  isGrillable: 0
+  foodPrefab: {fileID: 0}
+  ingredientType: 3
+  isGrabbed: 0
+  choppingObjects: []
 --- !u!33 &330927009491630185
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -55,7 +75,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7795355567926536439}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -156,6 +176,7 @@ MonoBehaviour:
   raw: {r: 0.87, g: 0.495175, b: 0.4611, a: 0}
   cooked: {r: 0.45299998, g: 0.32497826, b: 0.2314239, a: 0}
   currentState: 0
+  audioManager: {fileID: 2804135010039430164}
 --- !u!114 &6262679415641874352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5201,3 +5222,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2804135010039430164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7795355567926536439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdd9b7cda79da44d96011fb458efefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioDatas:
+  - title: Cooking
+    audioClip: {fileID: 8300000, guid: 91986845abe42d64496a47b8889d5ff3, type: 3}
+    volume: 1
+    loop: 1
+  - title: 
+    audioClip: {fileID: 8300000, guid: b18e63b69ceb01743863e185574071a1, type: 3}
+    volume: 1
+    loop: 0
+  - title: 
+    audioClip: {fileID: 0}
+    volume: 0
+    loop: 0
+  audioSources: []

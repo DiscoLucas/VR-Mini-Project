@@ -54,6 +54,7 @@ public class FoodItem : MonoBehaviour
     public GameObject[] choppingObjects;
     int chopCounter = 0;
 
+    public bool onChoppingBoard = false;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +75,18 @@ public class FoodItem : MonoBehaviour
            choppingObjects[0].GetComponent<MeshRenderer>().enabled = true;
         }
 
+        if (ingredientType == Ingredients.Tomato || ingredientType == Ingredients.Onion)
+        {
+            if (gameObject.GetComponent<SphereCollider>())
+            {
+                gameObject.GetComponent<SphereCollider>().enabled = true;
+            }
+            if (gameObject.GetComponent<BoxCollider>())
+            {
+                gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+        }
+
     }
 
     // Update is called once per frame
@@ -85,7 +98,7 @@ public class FoodItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Knife" && isChoppable)
+        if (other.tag == "Knife" && isChoppable && onChoppingBoard)
         {
             // if the item is chopped less than the amount of objects in the array
             if (chopCounter < choppingObjects.Length - 1)
@@ -102,13 +115,23 @@ public class FoodItem : MonoBehaviour
                 if (ingredientType == Ingredients.Tomato || ingredientType == Ingredients.Onion)
                 {
                     gameObject.tag = "FinishedFoodItem";
+
+
+                    if (gameObject.GetComponent<SphereCollider>())
+                    {
+                        gameObject.GetComponent<SphereCollider>().enabled = false;
+                    }
+                    if (gameObject.GetComponent<BoxCollider>())
+                    {
+                        gameObject.GetComponent<BoxCollider>().enabled = true;
+                    }
                 }
                 if (ingredientType == Ingredients.Meat) 
                 {
                     Debug.Log("spawn burger patty");
                     //Destroy(GetComponent<Collider>()); // remove physics components to avoid collision with burger patty
                     //Destroy(GetComponent<Rigidbody>());
-                    Instantiate(choppingObjects[choppingObjects.Length - 1], transform.position, transform.rotation); // spawn raw burger patty
+                    Instantiate(foodPrefab, transform.position, transform.rotation); // spawn raw burger patty
                     audioManager.PlayClip(1);
                     Destroy(gameObject); // game-end self
                 }

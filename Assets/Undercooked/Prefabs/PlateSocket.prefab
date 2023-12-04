@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1032594018172485188}
   m_Layer: 0
   m_Name: PlateSocket
-  m_TagString: Plate
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
   targetTag: FinishedFoodItem
+  socketedGameObject: {fileID: 0}
 --- !u!65 &1032594018172485188
 BoxCollider:
   m_ObjectHideFlags: 0

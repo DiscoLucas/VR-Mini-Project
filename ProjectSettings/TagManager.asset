@@ -13,6 +13,7 @@ TagManager:
   - FinishedFoodItem
   - DeliveryChecker
   - GameManager
+  - OrderReceipt
   layers:
   - Default
   - TransparentFX

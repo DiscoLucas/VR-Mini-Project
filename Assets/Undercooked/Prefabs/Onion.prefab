@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5207929242182159169}
   - component: {fileID: 4106658000694693018}
   - component: {fileID: 2356494194119939357}
+  - component: {fileID: 2464401553154746028}
   m_Layer: 0
   m_Name: Onion
   m_TagString: FoodItem
@@ -72,6 +73,7 @@ MonoBehaviour:
   - {fileID: 5073971187786610824}
   - {fileID: 3463305696740186636}
   - {fileID: 115444367622416394}
+  onChoppingBoard: 0
 --- !u!135 &1056924717159353239
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -328,6 +330,27 @@ MonoBehaviour:
     volume: 1
     loop: 0
   audioSources: []
+--- !u!65 &2464401553154746028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303305912381453453}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 0.026601758, z: 0.11578365}
+  m_Center: {x: 0, y: 0.0066991206, z: 0.023824206}
 --- !u!1001 &205176292141149995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -405,6 +428,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: onjon4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538903409979260868, guid: 3a469374950e8224b80659269bd2c6e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -501,6 +529,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: onjon6
       objectReference: {fileID: 0}
+    - target: {fileID: 7555350571942622779, guid: c05cedc7e253d744f9c0865b1128eef4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -596,6 +629,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: onjon3
       objectReference: {fileID: 0}
+    - target: {fileID: 3130150830564090807, guid: 0e392db85a82d5f439ef8410d7de84c9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -625,6 +663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: onjon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776473793034010018, guid: 7c35d0c63ddfadd4fa68ddd3cd0a5b05,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4549596920605927192, guid: 7c35d0c63ddfadd4fa68ddd3cd0a5b05,
         type: 3}
@@ -785,6 +828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: onjon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045122094132807024, guid: d7b76a9dd1dfa45478780e5701f02dfe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -976,6 +1024,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: onjon5
       objectReference: {fileID: 0}
+    - target: {fileID: 6688077873780882158, guid: 59b10dfcedd194648983c5b866527f21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1071,6 +1124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: onjon2
       objectReference: {fileID: 0}
+    - target: {fileID: 3241433162344106525, guid: 90bcca4f788f06e4995b431f909e1238,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1165,6 +1223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: onjon7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685406805018316882, guid: 2451f102c89b4964e8bd60ac7e6d08e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
