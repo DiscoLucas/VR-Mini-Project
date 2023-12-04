@@ -22,7 +22,6 @@ public class CostumerOrderManager : MonoBehaviour
 
     bool timeForNewOrder = true;
 
-
     // For order receipt spawn
     public GameObject orderPrefab;
 
@@ -30,6 +29,15 @@ public class CostumerOrderManager : MonoBehaviour
 
     public List<GameObject> orderPrefabs = new List<GameObject>();
 
+
+    // For round timer
+    public float roundTimer;
+
+    public GameObject scoreDisplayPrefab;
+
+    public Transform scoreDisplaySpawnpoint;
+
+    bool scoreNotDisplayed = true;
 
     public void Awake()
     {
@@ -52,40 +60,52 @@ public class CostumerOrderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Som det første, start med at lave en ny bestilling, eller tik timeren til næste bestilling ned en smule
-        if (timeForNewOrder)
+        // Tæller ned fra round timer
+        roundTimer -= Time.deltaTime;
+
+        // Hvis vi stadig er i runden
+        if (roundTimer > 0)
         {
-            StartCoroutine(CountDownToNextOrder());
-        }
-
-
-
-        // Hvis der er bestillinger tilbage
-        if (orders.Count != 0)
-        {
-            // Tæl ned på timeren for hver aktiv bestilling
-            for (int i = 0; i < orders.Count; i++)
+            // Som det første, start med at lave en ny bestilling, eller tik timeren til næste bestilling ned en smule
+            if (timeForNewOrder)
             {
-                orderTimes[i] -= Time.deltaTime;
-                // Hvis en bestillingstimer er nede på 0, fjern den. (Måske også straf med minuspoint? SENERE IMPLEMENTATION)
-                if (orderTimes[i] <= 0f)
-                {
-                    // Her fjernes den korrensponderende orderReceipt fra scenen, samt bestillingen og dens timer
-                    RemoveAt(i);
-                    //for (int orderNumber = 0; orderNumber < orderPrefabs.Count; orderNumber++)
-                    //{
-                    //    if (orderPrefabs[orderNumber].gameObject.GetComponent<OrderReceiptUI>().orderNumber == i)
-                    //    {
-                    //        Destroy(orderPrefabs[orderNumber].gameObject);
-                    //        return;
-                    //    }
-                    //}
-                    //orderTimes.RemoveAt(i);
-                    //orders.RemoveAt(i);
+                StartCoroutine(CountDownToNextOrder());
+            }
 
+            // Hvis der er bestillinger tilbage
+            if (orders.Count != 0)
+            {
+                // Tæl ned på timeren for hver aktiv bestilling
+                for (int i = 0; i < orders.Count; i++)
+                {
+                    orderTimes[i] -= Time.deltaTime;
+                    // Hvis en bestillingstimer er nede på 0, fjern den. (Måske også straf med minuspoint? SENERE IMPLEMENTATION)
+                    if (orderTimes[i] <= 0f)
+                    {
+                        // Her fjernes den korrensponderende orderReceipt fra scenen, samt bestillingen og dens timer
+                        RemoveAt(i);
+                        //for (int orderNumber = 0; orderNumber < orderPrefabs.Count; orderNumber++)
+                        //{
+                        //    if (orderPrefabs[orderNumber].gameObject.GetComponent<OrderReceiptUI>().orderNumber == i)
+                        //    {
+                        //        Destroy(orderPrefabs[orderNumber].gameObject);
+                        //        return;
+                        //    }
+                        //}
+                        //orderTimes.RemoveAt(i);
+                        //orders.RemoveAt(i);
+
+                    }
                 }
             }
         }
+
+        if (roundTimer <= 0 && scoreNotDisplayed)
+        {
+            Instantiate(scoreDisplayPrefab, scoreDisplaySpawnpoint);
+            scoreNotDisplayed = false;
+        }
+
 
     }
     /// <summary>

@@ -42,7 +42,19 @@ public class StackFoodOnPlate : MonoBehaviour
                 // Hvis det er den første foodItem, tilføj dens halve radius til snapDistances listen, som bruges til at placere alle ingredienserne forskudt fra hinanden
                 if (snapDistances.Count == 0)
                 {
-                    snapDistances.Add(other.gameObject.GetComponent<SphereCollider>().radius / 2);
+                    if (other.GetComponent<SphereCollider>())
+                    {
+                        snapDistances.Add(other.gameObject.GetComponent<SphereCollider>().radius / 2);
+                    }
+                    else if (other.GetComponent<BoxCollider>())
+                    {
+                        snapDistances.Add(other.gameObject.GetComponent<BoxCollider>().size.y / 2);
+                    }
+                    else
+                    {
+                        Debug.Log("Ingen box/sphere collider?");
+                    }
+
                 }
                 else
                 {

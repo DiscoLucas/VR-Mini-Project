@@ -11,6 +11,8 @@ TagManager:
   - Burner
   - Plate
   - FinishedFoodItem
+  - DeliveryChecker
+  - GameManager
   layers:
   - Default
   - TransparentFX

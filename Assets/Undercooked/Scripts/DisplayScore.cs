@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.Build.Content;
 
 public class DisplayScore : MonoBehaviour
 {
     public CostumerOrderManager costumerOrderManager;
     public CorrectDeliveryChecker correctDeliveryChecker;
+    public GameManager gameManager;
     public GameObject highScoreObject;
-    //public GameObject nextSceneButton;
+    public GameObject nextSceneButton;
     public TMP_Text highScore;
     public float scoreCounter = 0;
     public float maxScore = 5000;
@@ -22,14 +24,14 @@ public class DisplayScore : MonoBehaviour
 
     public void Awake()
     {
-        //Finder Minigame Manageren og scriptet til minigame scene management
-        //GameObject minigameManager = GameObject.FindGameObjectWithTag("MinigameManager");
-        //minigameOrderSelect = minigameManager.GetComponent<MinigameOrderSelect>();
+        //Finder deliverychecker og correctDeliveryChecker scriptet, som har scoren
+        GameObject deliveryChecker = GameObject.FindGameObjectWithTag("DeliveryChecker");
+        correctDeliveryChecker = deliveryChecker.GetComponent<CorrectDeliveryChecker>();
 
-        //costumerOrderManager = GetComponent<CostumerOrderManager>();
-        //correctDeliveryChecker = GetComponent<CorrectDeliveryChecker>();
+        GameObject gameManagerObj = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = gameManagerObj.GetComponent<GameManager>();
 
-        //nextSceneButton.SetActive(false);
+        nextSceneButton.SetActive(false);
         highScoreObject.GetComponent<TMP_Text>().text = highScore.text;
     }
 
@@ -45,14 +47,18 @@ public class DisplayScore : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Time.timeSinceLevelLoad);
+        //Debug.Log(Time.timeSinceLevelLoad);
         // Hvis den visuelle score på skærmen, er mindre end den scoren brugeren har fået
         if (scoreCounter < correctDeliveryChecker.score)
         {
             // ... bliver den visuelle score større med den beregnede countPrSecond factor svarer til i frame-by-frame tidsperspektiv (hence * Time.deltatime)
             scoreCounter += countPrSecond * Time.deltaTime;
             // Og den visuelle score skaleres gennem en Lerp coroutine
-            StartCoroutine(LerpFunction(targetScale, timeToLerp));
+            if (animationIsRunning)
+            {
+                StartCoroutine(LerpFunction(targetScale, timeToLerp));
+                animationIsRunning = false;
+            }
         }
         // Herefter afrunder vi scoren og den visuelle score text bliver opdateret
         double b = System.Math.Round(scoreCounter, 0);
@@ -61,29 +67,22 @@ public class DisplayScore : MonoBehaviour
         // Når hele scoren er talt op visuelt, resetter vi scoren til den normale størrelse gennem endnu et lerp
         if (scoreCounter >= correctDeliveryChecker.score)
         {
+            //Debug.Log("AAAAAAAAA");
             // Bare for at være sikker på vi ender på det rigtige tal
             scoreCounter = correctDeliveryChecker.score;
-            if (animationIsRunning)
-            {
-                StartCoroutine(LerpFunctionReverse(targetScale - scaleParameter, timeToLerp + 4));
-                animationIsRunning = false;
-            }
-            //nextSceneButton.SetActive(true);
+            //if (animationIsRunning)
+            //{
+            //    StartCoroutine(LerpFunctionReverse(targetScale - scaleParameter, timeToLerp + 4));
+            //    animationIsRunning = false;
+            //}
+            nextSceneButton.SetActive(true);
         }
     }
 
-    //public void HighScoreRead()
-    //{
-    //    if (StateManager.recipeNumber + 1 < 3)
-    //    {
-    //        StateManager.recipeNumber++;
-    //    }
-    //    else
-    //    {
-    //        minigameOrderSelect.doneWithAllMinigames = true;
-    //    }
-    //    minigameOrderSelect.highScoreRead = true;
-    //}
+    public void ReloadSceneClick()
+    {
+        gameManager.ReloadScene();
+    }
 
     //Use of lerp https://gamedevbeginner.com/the-right-way-to-lerp-in-unity-with-examples/
     IEnumerator LerpFunction(float endValue, float duration)
