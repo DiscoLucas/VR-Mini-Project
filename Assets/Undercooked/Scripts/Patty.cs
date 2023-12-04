@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Patty : MonoBehaviour
 {
-    public GameObject stoveTop;
     [SerializeField] float timeCooked;
     public float finishTime;
     public float finishWindow; // the window of time where the patty is considered cooked, before it burns
@@ -14,8 +13,6 @@ public class Patty : MonoBehaviour
     public Color cooked;
     private new Renderer renderer;
     public PattyState currentState;
-    private static bool isOnStove;
-    //private new ParticleSystem particleSystem;
 
     void Start()
     {
@@ -39,7 +36,7 @@ public class Patty : MonoBehaviour
 
     public void OnTriggerStay(Collider other) //when the patty enters the stove
     {
-        if (other.tag == "Burner") //if the patty is on the stove
+        if (other.CompareTag("Burner")) //if the patty is on the stove
         {
             timeCooked += Time.deltaTime; //add time to the timer
             float cookingProgress = Mathf.Clamp01(timeCooked / finishTime); //clamp the time to the finish time
@@ -65,9 +62,8 @@ public class Patty : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Burner")
+        if(other.CompareTag("Burner"))
         {
-            isOnStove = true;
             // turn on particle system for smoke
             var ps = GetComponent<ParticleSystem>();
             ps.Play();
@@ -80,9 +76,8 @@ public class Patty : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Burner")
+        if (other.CompareTag("Burner"))
         {
-            isOnStove = false;
             var ps = GetComponent<ParticleSystem>();
             ps.Stop();
 
@@ -90,12 +85,6 @@ public class Patty : MonoBehaviour
             AudioSource audio = GetComponent<AudioSource>();
             audio.Stop();
         }
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-
     }
 
 

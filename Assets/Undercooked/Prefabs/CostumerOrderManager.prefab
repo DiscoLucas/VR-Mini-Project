@@ -53,3 +53,5 @@ MonoBehaviour:
     type: 3}
   nextReceiptSpawnpoint: {fileID: 3885261627336607552}
   orderPrefabs: []
+  source: {fileID: 0}
+  clip: {fileID: 0}
