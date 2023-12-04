@@ -31,6 +31,12 @@ public class CostumerOrderManager : MonoBehaviour
     public List<GameObject> orderPrefabs = new List<GameObject>();
 
 
+    public AudioSource source;
+
+    public AudioClip clip;
+
+    
+
     public void Awake()
     {
         if (instance != null && instance != this)
@@ -137,6 +143,8 @@ public class CostumerOrderManager : MonoBehaviour
 
         // KØR IMPLEMENTATION TIL AT SPAWNE EN SEDDEL DER VISER RÆKKEFØLGEN HER
         Instantiate(orderPrefab, nextReceiptSpawnpoint);
+
+        source.PlayOneShot(clip);
 
     }
 
