@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 753014962708288833}
   - component: {fileID: 1947588320906506054}
-  - component: {fileID: 5614885780531895170}
   - component: {fileID: 2231021470477044136}
   - component: {fileID: 5884943052509616719}
   - component: {fileID: 6935065827628877090}
@@ -56,27 +55,7 @@ MonoBehaviour:
   ingredientType: 4
   isGrabbed: 0
   choppingObjects: []
---- !u!135 &5614885780531895170
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7638233468107858349}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.06
-  m_Center: {x: 0, y: 0, z: 0}
+  onChoppingBoard: 0
 --- !u!54 &2231021470477044136
 Rigidbody:
   m_ObjectHideFlags: 0

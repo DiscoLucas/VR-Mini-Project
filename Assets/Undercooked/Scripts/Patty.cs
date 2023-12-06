@@ -8,22 +8,23 @@ public class Patty : MonoBehaviour
     private float burnTimer;
     public Color raw;
     public Color cooked;
-    private new Renderer renderer;
+    public new Renderer renderer;
     public PattyState currentState;
     [SerializeField] AudioManager audioManager;
-    private ParticleSystem ps;
+    public ParticleSystem ps;
 
     void Start()
     {
-        renderer = GetComponentInChildren<Renderer>();
+        //renderer = gameObject.GetComponentInChildren<Renderer>();
         raw = renderer.material.color;
         currentState = PattyState.RawState;
         //var ps = GetComponent<ParticleSystem>();
-        ps = GetComponentInChildren<ParticleSystem>();
+        //ps = gameObject.GetComponentInChildren<ParticleSystem>();
         if (ps.isPlaying)
         {
             ps.Stop();
         }
+        audioManager.PlayClip(2);
     }
     
     public enum PattyState

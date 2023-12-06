@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 753014962708288833}
   - component: {fileID: 1947588320906506054}
-  - component: {fileID: 5614885780531895170}
   - component: {fileID: 2361171022002711913}
   - component: {fileID: 7664518579749342907}
   - component: {fileID: 1049048615098458186}
@@ -56,27 +55,7 @@ MonoBehaviour:
   ingredientType: 4
   isGrabbed: 0
   choppingObjects: []
---- !u!135 &5614885780531895170
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7638233468107858349}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Radius: 0.06
-  m_Center: {x: 0, y: 0, z: 0}
+  onChoppingBoard: 0
 --- !u!54 &2361171022002711913
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -331,7 +310,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.12, y: 0.03, z: 0.12}
+  m_Size: {x: 0.12, y: 0.02, z: 0.12}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8539101799679437467
 PrefabInstance:
@@ -364,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 2584765087443094368, guid: ee08d23426ed78145a01702f83dac1d3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0072
       objectReference: {fileID: 0}
     - target: {fileID: 2584765087443094368, guid: ee08d23426ed78145a01702f83dac1d3,
         type: 3}

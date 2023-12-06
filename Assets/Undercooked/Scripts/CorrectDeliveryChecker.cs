@@ -7,24 +7,31 @@ using System.Linq;
 public class CorrectDeliveryChecker : MonoBehaviour
 {
     public CostumerOrderManager orderManager;
+    public AudioManager audioManager;
 
     public List<Ingredients> ingredientsInOrder;
     public List<Ingredients> ingredients;
 
     public float score;
+    public float newestDeliveryScore;
 
     public float waitTimeBeforeDeletion;
 
     public List<List<Ingredients>> ingredientsList = new List<List<Ingredients>>();
 
+    // DISPLAY SPAWN
+    public GameObject displayObject;
+    public Transform displaySpawn;
+
     private void OnTriggerEnter(Collider collisionTarget)
     {
+        List<List<Ingredients>> orderManagerOrders = CostumerOrderManager.instance.orders;
 
         // Hvis vi stiller en tallerken på checker-collider'en
         if (collisionTarget.CompareTag("Plate"))
         {
             // Kører vi igennem listen af bestillinger, som orderManager har genereret
-            foreach (var order in orderManager.orders)
+            foreach (var order in orderManagerOrders)
             {
                 // Vi logger hvilken bestilling vi er på gennem en super jank måde, nemlig at tilføje
                 // bestillingen til en anden liste, der kun er til for at checke hvilken order der er korrekt
@@ -46,11 +53,17 @@ public class CorrectDeliveryChecker : MonoBehaviour
                     Debug.Log("Equal list, order is correct!");
 
                     // Der tilføjes til scoren lig resterende tid i bestillingen
-                    score += orderManager.orderTimes[orderNumber];
+                    //score += orderManager.orderTimes[orderNumber];
+                    score += CostumerOrderManager.instance.orderTimes[orderNumber];
+
+                    // Så gør vi klar til at display'e den individuelle score for ordren der blev afleveret
+                    newestDeliveryScore = CostumerOrderManager.instance.orderTimes[orderNumber];
+                    Instantiate(displayObject, displaySpawn);
 
                     // Her fjernes den korrensponderende orderReceipt fra scenen
                     // og derefter fjernes bestillingen og dens timer fra listerne
-                    orderManager.RemoveAt(orderNumber);
+                    //orderManager.RemoveAt(orderNumber);
+                    CostumerOrderManager.instance.RemoveAt(orderNumber);
 
                     //for (int i = 0; i < orderManager.orderPrefabs.Count; i++)
                     //{
@@ -64,6 +77,8 @@ public class CorrectDeliveryChecker : MonoBehaviour
                     //// Derefter fjernes bestillingen og dens timer fra listerne
                     //orderManager.orderTimes.RemoveAt(orderNumber);
                     //orderManager.orders.RemoveAt(orderNumber);
+                    audioManager.PlayClip(1);
+
 
                     // Vi resetter ingredientsListen
                     ingredientsList.Clear();
@@ -79,6 +94,8 @@ public class CorrectDeliveryChecker : MonoBehaviour
                     Debug.Log("Not Equal list");
                 }
             }
+            audioManager.PlayClip(0);
+            Instantiate(displayObject, displaySpawn);
 
             // Hvis den ikke matcher listen, reset ingredientsListen og slet tallerken objektet
             ingredientsList.Clear();

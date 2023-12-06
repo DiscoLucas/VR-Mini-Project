@@ -110,7 +110,7 @@ public class FoodItem : MonoBehaviour
                 audioManager.PlayClip(0);
 
             }
-            else
+            if (chopCounter == choppingObjects.Length - 1) // Dette er for at undgå det med at man skal hakke en ekstra gang for at få hakkede grønsager som FinishedFoodItem
             {
                 if (ingredientType == Ingredients.Tomato || ingredientType == Ingredients.Onion)
                 {
