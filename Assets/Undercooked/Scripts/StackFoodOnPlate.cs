@@ -166,6 +166,7 @@ public class StackFoodOnPlate : MonoBehaviour
     // Venter x sekunder og derefter sletter alle foodObjects på tallerkenen og derefter tallerkenen selv
     IEnumerator WaitThenDestroy(float time)
     {
+        gameObject.GetComponent<BoxCollider>().enabled = false;
         yield return new WaitForSeconds(time);
         foreach (var item in foodObjects)
         {

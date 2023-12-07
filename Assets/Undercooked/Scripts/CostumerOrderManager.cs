@@ -68,8 +68,11 @@ public class CostumerOrderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Tæller ned fra round timer
-        roundTimer -= Time.deltaTime;
+        // Tæller ned fra round timer, i if-statement, så den ikke fortsætter nedtællingen uendeligt
+        if (roundTimer >= 0f)
+        {
+            roundTimer -= Time.deltaTime;
+        }
 
         // Hvis vi stadig er i runden
         if (roundTimer > 0 && roundTimer < waitTimeBeforeFirstOrder)
@@ -129,7 +132,7 @@ public class CostumerOrderManager : MonoBehaviour
         for (int i = 0; i < Random.Range(minNumberOfRandomIngredients,maxNumberOfRandomIngredients); i++)
         {
             // Vi gør dette da de tre første Enums er Tomato, Onion (og Lettuce)
-            ingredientsInOrder.Add((Ingredients)Random.Range(0, 1));
+            ingredientsInOrder.Add((Ingredients)Random.Range(0, 2));
             //ingredient = (Ingredients)Random.Range(0, 2);
             //ingredientsInOrder.Add(ingredient);
 
