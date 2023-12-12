@@ -8,17 +8,13 @@ public class HandAnimationController : MonoBehaviour
 
 
 {
-
+    //The Animationcontroller used for the hands of the player, being able to clench their fist and pinch their fingers. 
 
     public InputActionProperty grabAnimation;
     public InputActionProperty fistAnimation;
 
     public Animator handAnimation;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  
 
     // Update is called once per frame
     void Update()
