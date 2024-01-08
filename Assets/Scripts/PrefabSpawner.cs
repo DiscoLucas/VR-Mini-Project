@@ -12,14 +12,11 @@ public class PrefabSpawner : MonoBehaviour
 
     public GameObject prefab;
     [SerializeField] Transform spawnPoint;
-    public AudioSource audio;
 
    
     private void OnTriggerEnter(Collider other)
     {
-        audio.Play();
         SpawnPrefab();
-        
     }
     public void SpawnPrefab()
     {
